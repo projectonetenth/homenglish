@@ -11,8 +11,8 @@ export default function Login() {
   const [tab, setTab] = useState('login') // 'login' | 'signup'
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [passwordConfirm, setPasswordConfirm] = useState('')
   const [loading, setLoading] = useState(false)
-  const [kakaoLoading, setKakaoLoading] = useState(false)
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
 
@@ -24,24 +24,6 @@ export default function Login() {
       navigate('/', { replace: true })
     }
   }, [user, navigate])
-
-  const handleKakaoLogin = async () => {
-    setError('')
-    setKakaoLoading(true)
-    try {
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: 'kakao',
-        options: {
-          redirectTo: window.location.origin + '/homenglish/',
-          scopes: 'profile_image profile_nickname',
-        },
-      })
-      if (error) throw error
-    } catch (err) {
-      setError(err.message || '카카오 로그인 중 오류가 발생했습니다.')
-      setKakaoLoading(false)
-    }
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -55,11 +37,17 @@ export default function Login() {
         if (error) throw error
         navigate(from, { replace: true })
       } else {
+        if (password !== passwordConfirm) {
+          setError('비밀번호가 일치하지 않습니다.')
+          setLoading(false)
+          return
+        }
         const { error } = await supabase.auth.signUp({ email, password })
         if (error) throw error
         setMessage('이메일 확인 링크를 보냈습니다. 받은 편지함을 확인해주세요.')
         setEmail('')
         setPassword('')
+        setPasswordConfirm('')
       }
     } catch (err) {
       const msg = err.message || '오류가 발생했습니다.'
@@ -98,7 +86,7 @@ export default function Login() {
           <div className="flex mb-6 rounded-xl bg-neutral-100 dark:bg-neutral-700/50 p-1">
             <button
               type="button"
-              onClick={() => { setTab('login'); setError(''); setMessage('') }}
+              onClick={() => { setTab('login'); setError(''); setMessage(''); setPasswordConfirm('') }}
               className={[
                 'flex-1 py-2 text-sm font-semibold rounded-lg transition-all',
                 tab === 'login'
@@ -110,7 +98,7 @@ export default function Login() {
             </button>
             <button
               type="button"
-              onClick={() => { setTab('signup'); setError(''); setMessage('') }}
+              onClick={() => { setTab('signup'); setError(''); setMessage(''); setPasswordConfirm('') }}
               className={[
                 'flex-1 py-2 text-sm font-semibold rounded-lg transition-all',
                 tab === 'signup'
@@ -120,30 +108,6 @@ export default function Login() {
             >
               회원가입
             </button>
-          </div>
-
-          {/* 카카오 로그인 */}
-          <button
-            type="button"
-            onClick={handleKakaoLogin}
-            disabled={kakaoLoading || loading}
-            className="w-full flex items-center justify-center gap-2.5 py-3 rounded-xl font-semibold text-sm transition disabled:opacity-60 disabled:cursor-not-allowed"
-            style={{ backgroundColor: '#FEE500', color: '#191919' }}
-          >
-            <svg width="20" height="20" viewBox="0 0 512 512" fill="none">
-              <path
-                d="M255.5 48C141.1 48 48 121.5 48 212c0 58.8 38.2 110.4 96 141.7l-12.3 72.9c-1 5.9 5.4 10.3 10.4 7.1l83.4-55.5c10 1.2 20.2 1.8 30.5 1.8 114.4 0 207.5-73.5 207.5-164S369.9 48 255.5 48z"
-                fill="#191919"
-              />
-            </svg>
-            {kakaoLoading ? '카카오 연결 중...' : '카카오 로그인'}
-          </button>
-
-          {/* 구분선 */}
-          <div className="flex items-center gap-3 my-2">
-            <div className="flex-1 h-px bg-neutral-200 dark:bg-neutral-700" />
-            <span className="text-xs text-neutral-400 dark:text-neutral-500 whitespace-nowrap">또는 이메일로 계속하기</span>
-            <div className="flex-1 h-px bg-neutral-200 dark:bg-neutral-700" />
           </div>
 
           {/* 폼 */}
@@ -178,6 +142,23 @@ export default function Login() {
               />
             </div>
 
+            {tab === 'signup' && (
+              <div>
+                <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
+                  비밀번호 확인
+                </label>
+                <input
+                  type="password"
+                  value={passwordConfirm}
+                  onChange={(e) => setPasswordConfirm(e.target.value)}
+                  required
+                  autoComplete="new-password"
+                  placeholder="비밀번호를 다시 입력해주세요"
+                  className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 dark:focus:ring-brand-light/30 focus:border-brand dark:focus:border-brand-light transition"
+                />
+              </div>
+            )}
+
             {/* 에러 메시지 */}
             {error && (
               <div className="px-4 py-3 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-sm text-red-600 dark:text-red-400">
@@ -208,7 +189,7 @@ export default function Login() {
               계정이 없으신가요?{' '}
               <button
                 type="button"
-                onClick={() => { setTab('signup'); setError(''); setMessage('') }}
+                onClick={() => { setTab('signup'); setError(''); setMessage(''); setPasswordConfirm('') }}
                 className="text-brand dark:text-brand-light font-semibold hover:underline transition"
               >
                 회원가입
@@ -221,7 +202,7 @@ export default function Login() {
               이미 계정이 있으신가요?{' '}
               <button
                 type="button"
-                onClick={() => { setTab('login'); setError(''); setMessage('') }}
+                onClick={() => { setTab('login'); setError(''); setMessage(''); setPasswordConfirm('') }}
                 className="text-brand dark:text-brand-light font-semibold hover:underline transition"
               >
                 로그인
