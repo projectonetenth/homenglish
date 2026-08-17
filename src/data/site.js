@@ -12,7 +12,8 @@ export const site = {
   contact: {
     email: 'homenglish@gmail.com',
     instagram: '#',
-    notion: '#',
+    form: 'https://docs.google.com/forms/d/e/1FAIpQLSeH6bqF6Rn7khNICRh1wLVMqazthE1ncaSvAFNm2gCANC0qOg/viewform?usp=send_form',
+    youtube: 'https://www.youtube.com/@10%EB%B6%84%EC%9D%981%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8',
   },
   footerLinks: [
     { label: '홈글리시 소개', to: '/about' },

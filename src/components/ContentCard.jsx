@@ -1,18 +1,35 @@
 import { Link } from 'react-router-dom'
 import { categories, grades } from '../data/site'
 
+const catBg = {
+  mint:  'bg-palette-mint/70 dark:bg-palette-mint/10',
+  yellow:'bg-palette-yellow/70 dark:bg-palette-yellow/10',
+  peach: 'bg-palette-peach/70 dark:bg-palette-peach/10',
+  blue:  'bg-palette-blue/70 dark:bg-palette-blue/10',
+}
+
+const catText = {
+  mint:  'text-emerald-700 dark:text-emerald-400',
+  yellow:'text-amber-700 dark:text-amber-400',
+  peach: 'text-orange-700 dark:text-orange-400',
+  blue:  'text-blue-700 dark:text-blue-400',
+}
+
 export default function ContentCard({ item }) {
   const cat = categories[item.category]
   const grade = grades[item.grade] || grades.all
   const gradeLabel = item.gradeShort || grade.label
 
+  const bg = catBg[cat?.color] ?? 'bg-neutral-100 dark:bg-neutral-800'
+  const tc = catText[cat?.color] ?? 'text-neutral-500 dark:text-neutral-400'
+
   return (
     <Link
       to={`/content/${item.id}`}
-      className="group flex flex-col bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-700 rounded-xl overflow-hidden transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-500 hover:-translate-y-0.5"
+      className="group flex flex-col bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 rounded-xl overflow-hidden transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-600 hover:-translate-y-0.5"
     >
       {/* 썸네일 */}
-      <div className="relative h-40 overflow-hidden shrink-0 bg-neutral-50 dark:bg-neutral-800">
+      <div className={`relative h-40 overflow-hidden shrink-0 ${!item.image ? bg : 'bg-neutral-50 dark:bg-neutral-800'}`}>
         {item.image ? (
           <img
             src={item.image}
@@ -22,14 +39,16 @@ export default function ContentCard({ item }) {
             onError={(e) => { e.currentTarget.style.display = 'none' }}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-4xl text-neutral-300 dark:text-neutral-600">
-            {cat?.emoji || '📚'}
+          <div className="w-full h-full flex flex-col items-center justify-center gap-2">
+            <span className={`text-4xl font-bold tracking-tight ${tc} opacity-25 select-none`}>
+              {cat?.label ?? 'English'}
+            </span>
           </div>
         )}
 
         {/* 무료 배지 */}
         {item.types.includes('free') && (
-          <span className="absolute top-3 left-3 text-[11px] font-semibold px-2 py-0.5 rounded bg-palette-mint text-emerald-800">
+          <span className="absolute top-3 left-3 text-[11px] font-semibold px-2 py-0.5 rounded bg-white/90 dark:bg-neutral-900/80 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
             무료
           </span>
         )}

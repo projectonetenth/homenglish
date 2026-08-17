@@ -40,32 +40,32 @@
 
 @layer components {
   .card {
-    @apply bg-white dark:bg-surface-dark rounded-2xl border border-neutral-100 dark:border-neutral-700 transition-all duration-200 shadow-warm;
+    @apply bg-white dark:bg-surface-dark rounded-2xl border border-neutral-100 dark:border-neutral-800 transition-all duration-200 shadow-warm;
   }
   .card:hover {
-    @apply shadow-warm-md -translate-y-0.5;
+    @apply shadow-warm-md -translate-y-0.5 border-neutral-200 dark:border-neutral-700;
   }
 
   .badge {
     @apply inline-flex items-center gap-1 text-xs font-semibold px-2.5 py-1 rounded-lg;
   }
   .badge-free {
-    @apply bg-palette-mint text-emerald-800;
+    @apply bg-palette-mint text-emerald-800 dark:bg-palette-mint/20 dark:text-emerald-400;
   }
   .badge-paid {
-    @apply bg-palette-peach text-orange-800;
+    @apply bg-palette-peach text-orange-800 dark:bg-palette-peach/20 dark:text-orange-400;
   }
   .badge-video {
-    @apply bg-palette-yellow text-amber-800;
+    @apply bg-palette-yellow text-amber-800 dark:bg-palette-yellow/20 dark:text-amber-400;
   }
   .badge-worksheet {
-    @apply bg-palette-blue text-blue-800;
+    @apply bg-palette-blue text-blue-800 dark:bg-palette-blue/20 dark:text-blue-400;
   }
   .badge-app {
-    @apply bg-purple-100 text-purple-800;
+    @apply bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-400;
   }
   .badge-book {
-    @apply bg-rose-100 text-rose-800;
+    @apply bg-rose-100 text-rose-800 dark:bg-rose-900/30 dark:text-rose-400;
   }
 
   .section-x {

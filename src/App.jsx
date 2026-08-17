@@ -10,6 +10,7 @@ import Contents from './pages/Contents'
 import ContentDetail from './pages/ContentDetail'
 import About from './pages/About'
 import SimplePage from './pages/SimplePage'
+import LevelTest from './pages/LevelTest'
 import Login from './pages/Login'
 import Board from './pages/Board'
 import BoardDetail from './pages/BoardDetail'
@@ -38,7 +39,7 @@ export default function App() {
 
           {/* 소개 / 기타 */}
           <Route path="/about" element={<About />} />
-          <Route path="/level-test" element={<SimplePage title="레벨테스트" />} />
+          <Route path="/level-test" element={<LevelTest />} />
           <Route path="/guide" element={<SimplePage title="이용안내" />} />
           <Route path="/privacy" element={<SimplePage title="개인정보처리방침" />} />
 

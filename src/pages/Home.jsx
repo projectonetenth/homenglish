@@ -8,8 +8,8 @@ import ContentCard from '../components/ContentCard'
 function Hero() {
   return (
     <section className="bg-bg dark:bg-bg-dark border-b border-neutral-100 dark:border-neutral-800">
-      <div className="w-full max-w-container mx-auto section-x py-20 md:py-32">
-        <h1 className="text-5xl md:text-7xl lg:text-[88px] font-bold text-brand dark:text-neutral-100 leading-[1.1] mb-10">
+      <div className="w-full max-w-container mx-auto section-x py-14 md:py-28 lg:py-36">
+        <h1 className="text-[2rem] sm:text-5xl md:text-7xl lg:text-[88px] font-bold text-brand dark:text-neutral-100 leading-[1.15] mb-6 md:mb-10">
           가정 영어 학습의<br />
           첫 걸음,{' '}
           <span className="text-accent dark:text-accent-light">홈글리시</span>
@@ -110,7 +110,7 @@ function Top10() {
   return (
     <section className="bg-surface-2 dark:bg-surface-2dark transition-colors py-16 md:py-24">
       <div className="max-w-container mx-auto section-x">
-        <div className="flex items-baseline justify-between mb-10 flex-wrap gap-4 border-b border-neutral-200 dark:border-neutral-700 pb-6">
+        <div className="flex items-baseline justify-between mb-10 flex-wrap gap-4 border-b border-neutral-200 dark:border-neutral-600 pb-6">
           <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-100">
             선호도 높은 콘텐츠{' '}
             <span className="text-brand dark:text-brand-light">Top 10</span>
@@ -152,7 +152,7 @@ function CategoryBrowse() {
 
   return (
     <section className="max-w-container mx-auto section-x py-16 md:py-24">
-      <div className="flex items-baseline gap-6 border-b border-neutral-200 dark:border-neutral-700 pb-5 mb-8 flex-wrap">
+      <div className="flex items-baseline gap-6 border-b border-neutral-200 dark:border-neutral-600 pb-5 mb-8 flex-wrap">
         <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-100">
           주제별 탐색
         </h2>
@@ -248,7 +248,7 @@ function ReviewCTA() {
             </p>
           </div>
           <a
-            href={site.contact.notion}
+            href={site.contact.form}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-semibold px-8 py-3.5 rounded-lg hover:opacity-90 transition shadow-sm text-sm md:text-base shrink-0"
@@ -271,11 +271,11 @@ function FAQ() {
         자주 묻는 질문
       </h2>
 
-      <div className="max-w-3xl border-t border-neutral-200 dark:border-neutral-700">
+      <div className="max-w-3xl border-t border-neutral-200 dark:border-neutral-600">
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className="border-b border-neutral-200 dark:border-neutral-700"
+            className="border-b border-neutral-200 dark:border-neutral-600"
           >
             <button
               type="button"
@@ -299,10 +299,12 @@ function FAQ() {
       <p className="mt-8 text-sm text-neutral-400 dark:text-neutral-500">
         더 궁금한 점은{' '}
         <a
-          href={`mailto:${site.contact.email}`}
+          href={site.contact.form}
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-brand dark:text-brand-light underline underline-offset-2 hover:opacity-70 transition"
         >
-          {site.contact.email}
+          문의하기
         </a>
         로 연락 주세요.
       </p>

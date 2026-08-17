@@ -65,6 +65,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/level-test" className="text-sm text-white/60 hover:text-white transition">
+                  레벨 진단 테스트
+                </Link>
+              </li>
+              <li>
+                <Link to="/board/free" className="text-sm text-white/60 hover:text-white transition">
+                  커뮤니티
+                </Link>
+              </li>
+              <li>
                 <Link to="/guide" className="text-sm text-white/60 hover:text-white transition">
                   이용안내
                 </Link>
