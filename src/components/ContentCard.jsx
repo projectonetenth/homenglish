@@ -9,10 +9,10 @@ export default function ContentCard({ item }) {
   return (
     <Link
       to={`/content/${item.id}`}
-      className="card group flex flex-col overflow-hidden"
+      className="group flex flex-col bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-700 rounded-xl overflow-hidden transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-500 hover:-translate-y-0.5"
     >
       {/* 썸네일 */}
-      <div className="relative h-44 sm:h-48 overflow-hidden shrink-0 bg-neutral-100 dark:bg-neutral-800">
+      <div className="relative h-40 overflow-hidden shrink-0 bg-neutral-50 dark:bg-neutral-800">
         {item.image ? (
           <img
             src={item.image}
@@ -22,48 +22,36 @@ export default function ContentCard({ item }) {
             onError={(e) => { e.currentTarget.style.display = 'none' }}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-5xl transition-transform duration-300 group-hover:scale-105 bg-bg dark:bg-brand/20">
+          <div className="w-full h-full flex items-center justify-center text-4xl text-neutral-300 dark:text-neutral-600">
             {cat?.emoji || '📚'}
           </div>
         )}
 
-        {/* 상단 우측: 무료/유료 + 카테고리 — 가로 배열 */}
-        <div className="absolute top-3 right-3 flex flex-row items-center gap-1.5">
-          {item.types.includes('free') && (
-            <span className="badge badge-free text-[11px]">무료</span>
-          )}
-          {item.types.includes('paid') && (
-            <span className="badge badge-paid text-[11px]">유료</span>
-          )}
-          <span className="text-xs font-medium bg-white/80 dark:bg-neutral-800/80 text-neutral-700 dark:text-neutral-200 px-2 py-1 rounded-full">
-            {cat?.emoji} {cat?.label}
+        {/* 무료 배지 */}
+        {item.types.includes('free') && (
+          <span className="absolute top-3 left-3 text-[11px] font-semibold px-2 py-0.5 rounded bg-palette-mint text-emerald-800">
+            무료
           </span>
-        </div>
+        )}
       </div>
 
       {/* 본문 */}
-      <div className="flex flex-col flex-1 p-4">
-        <h3 className="text-base font-medium leading-snug text-neutral-800 dark:text-neutral-100 line-clamp-2 mb-2 group-hover:text-brand dark:group-hover:text-brand-light transition-colors">
-          {item.title}
-        </h3>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-2 leading-relaxed flex-1">
-          {item.description}
-        </p>
-
-        {/* 하단 좌측: 학년 칩 */}
-        <div className="mt-3 flex items-center gap-1.5 flex-wrap">
+      <div className="flex flex-col flex-1 p-4 gap-2">
+        <div className="flex items-center gap-2 text-[11px] text-neutral-400 dark:text-neutral-500">
+          <span>{cat?.label}</span>
           {gradeLabel && (
-            <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-full ${grade.color}`}>
-              {gradeLabel}
-            </span>
+            <>
+              <span>·</span>
+              <span>{gradeLabel}</span>
+            </>
           )}
         </div>
-      </div>
-
-      <div className="px-4 pb-3">
-        <span className="text-xs text-brand dark:text-brand-light font-semibold flex items-center gap-1">
-          <span>📋</span> 자세히 보기 →
-        </span>
+        <h3 className="text-sm font-semibold leading-snug text-neutral-800 dark:text-neutral-100 line-clamp-2 group-hover:text-brand dark:group-hover:text-brand-light transition-colors">
+          {item.title}
+        </h3>
+        <p className="text-xs text-neutral-400 dark:text-neutral-500 line-clamp-2 leading-relaxed flex-1">
+          {item.description}
+        </p>
       </div>
     </Link>
   )

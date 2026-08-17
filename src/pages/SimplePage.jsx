@@ -10,9 +10,9 @@ export default function SimplePage({ title }) {
       </p>
       <Link
         to="/"
-        className="inline-flex items-center gap-2 bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium px-6 py-3 rounded-full hover:opacity-90 transition"
+        className="inline-flex items-center bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium px-6 py-3 rounded-lg hover:opacity-90 transition"
       >
-        홈으로 돌아가기 →
+        홈으로 돌아가기
       </Link>
     </div>
   )

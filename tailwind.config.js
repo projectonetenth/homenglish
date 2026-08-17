@@ -20,6 +20,10 @@ export default {
           '2': '#F5F0E8',
           '2dark': '#2D3D56',
         },
+        accent: {
+          DEFAULT: '#C97841',
+          light: '#E08C50',
+        },
         palette: {
           peach: '#FFD4B2',
           yellow: '#FFEB99',
@@ -35,6 +39,11 @@ export default {
       },
       fontFamily: {
         sans: ['Poppins', 'GmarketSans', 'system-ui', '-apple-system', 'sans-serif'],
+      },
+      boxShadow: {
+        warm: '0 1px 4px rgba(138,133,125,0.2)',
+        'warm-md': '0 4px 16px rgba(138,133,125,0.16), 0 1px 4px rgba(138,133,125,0.12)',
+        'warm-lg': '0 8px 24px rgba(138,133,125,0.18), 0 2px 8px rgba(138,133,125,0.1)',
       },
       maxWidth: {
         container: '1400px',

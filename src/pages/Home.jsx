@@ -7,37 +7,32 @@ import ContentCard from '../components/ContentCard'
 // ── 히어로 ────────────────────────────────────────────────
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-brand dark:bg-brand-dark min-h-[420px] md:min-h-[500px] flex items-center">
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-white/5 blur-3xl" />
-      </div>
-
-      <div className="relative z-10 w-full max-w-container mx-auto section-x py-20 md:py-28">
-        <p className="text-bg/80 text-sm md:text-base font-medium tracking-widest uppercase mb-4">
-          엄마표 영어 · 가정학습 커뮤니티
-        </p>
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-5">
-          가정 영어 학습의 첫 걸음,<br />
-          <span className="text-bg">홈글리시</span>
+    <section className="bg-bg dark:bg-bg-dark border-b border-neutral-100 dark:border-neutral-800">
+      <div className="w-full max-w-container mx-auto section-x py-20 md:py-32">
+        <h1 className="text-5xl md:text-7xl lg:text-[88px] font-bold text-brand dark:text-neutral-100 leading-[1.1] mb-10">
+          가정 영어 학습의<br />
+          첫 걸음,{' '}
+          <span className="text-accent dark:text-accent-light">홈글리시</span>
         </h1>
-        <p className="text-white/80 text-base md:text-xl max-w-xl mb-10 leading-relaxed">
-          영어 가정학습 선배맘과 후배맘의<br className="hidden md:block" />
-          상부상조 커뮤니티 플랫폼
-        </p>
-        <div className="flex flex-wrap gap-3">
-          <Link
-            to="/contents/all"
-            className="inline-flex items-center gap-2 bg-bg text-brand font-medium px-6 py-3.5 rounded-full hover:bg-white transition shadow-lg text-sm md:text-base"
-          >
-            콘텐츠 둘러보기 →
-          </Link>
-          <Link
-            to="/level-test"
-            className="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3.5 rounded-full hover:bg-white/20 transition text-sm md:text-base"
-          >
-            📊 레벨테스트
-          </Link>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+          <p className="text-neutral-500 dark:text-neutral-400 text-base md:text-lg max-w-xs leading-relaxed">
+            영어 가정학습 선배맘과 후배맘의
+            상부상조 커뮤니티 플랫폼
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              to="/contents/all"
+              className="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold px-6 py-3 rounded-lg transition shadow-sm text-sm"
+            >
+              콘텐츠 둘러보기
+            </Link>
+            <Link
+              to="/level-test"
+              className="inline-flex items-center border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 font-medium px-6 py-3 rounded-lg hover:border-brand dark:hover:border-brand-light hover:text-brand dark:hover:text-brand-light transition text-sm"
+            >
+              레벨테스트
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -48,42 +43,34 @@ function Hero() {
 function Intro() {
   const features = [
     {
-      emoji: '📚',
+      num: '01',
       title: '검증된 영어 자료',
       desc: '선배맘들이 직접 써본 교재와 앱을 엄선해 소개합니다.',
-      color: 'bg-brand/10 dark:bg-brand/30',
     },
     {
-      emoji: '👩‍👧',
+      num: '02',
       title: '선배맘 노하우',
       desc: '엄마표 영어를 성공적으로 실천한 부모들의 실제 후기를 확인하세요.',
-      color: 'bg-brand/10 dark:bg-brand/30',
     },
     {
-      emoji: '📊',
+      num: '03',
       title: '레벨별 가이드',
       desc: '아이 수준에 맞는 자료와 학습 순서를 단계별로 안내합니다.',
-      color: 'bg-brand/10 dark:bg-brand/30',
     },
     {
-      emoji: '💰',
+      num: '04',
       title: '사교육비 절감',
       desc: '10분의 1 프로젝트 — 사교육비 부담 없이 가정에서 영어를 완성합니다.',
-      color: 'bg-brand/10 dark:bg-brand/30',
     },
   ]
 
   return (
     <section className="max-w-container mx-auto section-x py-16 md:py-24">
-      <div className="grid md:grid-cols-2 gap-10 items-center">
+      <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
         <div>
-          <p className="text-brand dark:text-brand-light text-sm font-medium tracking-widest uppercase mb-3">
-            영어 가정학습, 홈글리시가 함께해요
-          </p>
-          <h2 className="text-2xl md:text-4xl font-semibold text-neutral-800 dark:text-neutral-100 leading-snug mb-6">
-            홈글리시는 부모와 아이가<br />
-            함께하는{' '}
-            <span className="text-brand dark:text-brand-light">영어 가정학습의<br />모든 것</span>을 담은 플랫폼입니다.
+          <h2 className="text-2xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-100 leading-snug mb-6">
+            부모와 아이가 함께하는{' '}
+            <span className="text-brand dark:text-brand-light">영어 가정학습의 모든 것</span>
           </h2>
           <p className="text-neutral-500 dark:text-neutral-400 text-base leading-relaxed mb-8">
             사교육비 걱정 없이, 집에서도 충분히 영어를 잘 할 수 있어요.
@@ -91,20 +78,22 @@ function Intro() {
           </p>
           <Link
             to="/about"
-            className="inline-flex items-center gap-2 text-brand dark:text-brand-light font-semibold hover:underline"
+            className="text-sm font-semibold text-brand dark:text-brand-light underline underline-offset-4 hover:opacity-70 transition"
           >
-            홈글리시 더 알아보기 →
-          </Link>
+            홈글리시 더 알아보기
+</Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="flex flex-col divide-y divide-neutral-100 dark:divide-neutral-800">
           {features.map((f) => (
-            <div key={f.title} className="card p-5">
-              <div className={`w-11 h-11 rounded-xl ${f.color} flex items-center justify-center text-2xl mb-3`}>
-                {f.emoji}
+            <div key={f.num} className="flex gap-5 py-5 first:pt-0 last:pb-0">
+              <span className="text-xs font-bold text-neutral-300 dark:text-neutral-600 mt-0.5 w-6 shrink-0 tabular-nums">
+                {f.num}
+              </span>
+              <div>
+                <h3 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-1">{f.title}</h3>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">{f.desc}</p>
               </div>
-              <h3 className="font-medium text-neutral-800 dark:text-neutral-100 text-sm mb-1">{f.title}</h3>
-              <p className="text-xs text-neutral-500 dark:text-neutral-400 leading-relaxed">{f.desc}</p>
             </div>
           ))}
         </div>
@@ -121,31 +110,24 @@ function Top10() {
   return (
     <section className="bg-surface-2 dark:bg-surface-2dark transition-colors py-16 md:py-24">
       <div className="max-w-container mx-auto section-x">
-        <div className="flex items-end justify-between mb-2 flex-wrap gap-4">
-          <div>
-            <p className="text-brand dark:text-brand-light text-sm font-medium tracking-widest uppercase mb-2">
-              홈글리시 Pick
-            </p>
-            <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 dark:text-neutral-100">
-              선호도가 높은 콘텐츠 Top 10
-            </h2>
-          </div>
+        <div className="flex items-baseline justify-between mb-10 flex-wrap gap-4 border-b border-neutral-200 dark:border-neutral-700 pb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-100">
+            선호도 높은 콘텐츠{' '}
+            <span className="text-brand dark:text-brand-light">Top 10</span>
+          </h2>
           <Link
             to="/contents/all"
-            className="text-sm font-semibold text-brand dark:text-brand-light hover:underline"
+            className="text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-brand dark:hover:text-brand-light transition"
           >
-            전체 콘텐츠 보기 →
+            전체 보기
           </Link>
         </div>
-        <p className="text-neutral-500 dark:text-neutral-400 text-sm mb-10">
-          홈글리시 내에서 학부모님들에게 선호가 가장 높은 콘텐츠들입니다.
-        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {featured.map((item, i) => (
             <div key={item.id} className="relative">
               {i < 3 && (
-                <div className="absolute -top-2 -left-2 z-10 w-8 h-8 bg-brand dark:bg-brand-light text-white dark:text-bg-dark rounded-full flex items-center justify-center text-xs font-black shadow">
+                <div className="absolute -top-2 -left-2 z-10 w-7 h-7 bg-brand dark:bg-brand-light text-white dark:text-bg-dark rounded-md flex items-center justify-center text-xs font-bold shadow-sm">
                   {i + 1}
                 </div>
               )}
@@ -170,15 +152,14 @@ function CategoryBrowse() {
 
   return (
     <section className="max-w-container mx-auto section-x py-16 md:py-24">
-      <p className="text-brand dark:text-brand-light text-sm font-medium tracking-widest uppercase mb-2">
-        학습 주제별 탐색
-      </p>
-      <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2">
-        다양한 학습 소스를 검색해보세요
-      </h2>
-      <p className="text-neutral-500 dark:text-neutral-400 text-sm mb-10">
-        리딩, 문법, 어휘, 파닉스 등 원하는 주제를 선택해 우리 아이에게 맞는 교재를 찾아보세요.
-      </p>
+      <div className="flex items-baseline gap-6 border-b border-neutral-200 dark:border-neutral-700 pb-5 mb-8 flex-wrap">
+        <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-100">
+          주제별 탐색
+        </h2>
+        <p className="text-neutral-400 dark:text-neutral-500 text-sm">
+          리딩, 문법, 어휘, 파닉스 등 원하는 주제를 선택하세요
+        </p>
+      </div>
 
       <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-8">
         {cats.map(([key, cat]) => (
@@ -186,7 +167,7 @@ function CategoryBrowse() {
             key={key}
             to={`/contents/${key}`}
             className={[
-              'flex flex-col items-center gap-2 p-4 rounded-2xl transition font-semibold text-neutral-800 shadow-sm',
+              'flex flex-col items-center gap-2 p-4 rounded-xl transition font-semibold text-neutral-800 shadow-warm',
               colorBg[cat.color] || 'bg-palette-blue hover:bg-palette-hover-blue',
             ].join(' ')}
           >
@@ -199,9 +180,9 @@ function CategoryBrowse() {
       <div className="text-center">
         <Link
           to="/contents/all"
-          className="inline-flex items-center gap-2 bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium px-8 py-3.5 rounded-full hover:opacity-90 transition shadow text-sm md:text-base"
+          className="inline-flex items-center gap-2 bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-semibold px-8 py-3.5 rounded-lg hover:opacity-90 transition shadow-sm text-sm md:text-base"
         >
-          전체 콘텐츠 보기 →
+          전체 콘텐츠 보기
         </Link>
       </div>
     </section>
@@ -210,42 +191,41 @@ function CategoryBrowse() {
 
 // ── 10분의 1 프로젝트 ────────────────────────────────────
 function MissionBand() {
+  const items = [
+    '아이에게 집에서 영어를 가르쳐보고 싶은 부모',
+    '사교육비 부담을 줄이고 싶은 가정',
+    '뭐부터 해야 할지 몰라 헤매는 부모',
+    '아이 수준에 맞는 자료를 찾고 싶은 가정',
+  ]
+
   return (
     <section className="bg-brand dark:bg-brand-dark py-16 md:py-24 transition-colors">
       <div className="max-w-container mx-auto section-x">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
           <div>
-            <p className="text-bg/80 text-sm font-medium tracking-widest uppercase mb-4">
+            <p className="text-white/40 text-xs font-medium mb-6 uppercase tracking-widest">
               임팩트닷 커리어 프로젝트 선정
             </p>
-            <h2 className="text-2xl md:text-4xl font-semibold text-white leading-snug mb-6">
-              10분의 1 프로젝트
+            <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight mb-8">
+              10분의 1<br />프로젝트
             </h2>
-            <p className="text-white/80 text-base leading-relaxed mb-6">
+            <p className="text-white/70 text-base leading-relaxed">
               {site.mission}
-            </p>
-            <p className="text-white/60 text-sm leading-relaxed">
-              영어 가정학습 선배맘과 후배맘의 상부상조 커뮤니티 플랫폼을 만들기 위해 노력해왔어요.
-              여러분의 경험이 쌓여 더 많은 가정이 사교육 없이도 영어를 완성할 수 있게 됩니다.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { label: '이런 가정에 잘 맞아요', emoji: '✅', items: ['아이에게 집에서 영어를 가르쳐보고 싶은 부모', '사교육비 부담을 줄이고 싶은 가정', '뭐부터 해야 할지 몰라 헤매는 부모', '아이 수준에 맞는 자료를 찾고 싶은 가정'] }
-            ].map((section) => (
-              <div key={section.label} className="col-span-2 bg-white/10 rounded-2xl p-6">
-                <p className="text-bg/90 font-medium text-sm mb-4">{section.emoji} {section.label}</p>
-                <ul className="space-y-2">
-                  {section.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-white/80 text-sm">
-                      <span className="text-bg/70 mt-0.5 shrink-0">→</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div>
+            <p className="text-white/50 text-sm font-medium mb-6 border-b border-white/10 pb-4">
+              이런 가정에 잘 맞아요
+            </p>
+            <ul className="flex flex-col gap-4">
+              {items.map((item) => (
+                <li key={item} className="flex items-start gap-4 text-white/80 text-sm leading-relaxed">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent dark:bg-accent-light mt-2 shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
@@ -257,25 +237,25 @@ function MissionBand() {
 function ReviewCTA() {
   return (
     <section className="bg-surface-2 dark:bg-surface-2dark py-16 md:py-20 transition-colors">
-      <div className="max-w-container mx-auto section-x text-center">
-        <p className="text-4xl mb-4">☕</p>
-        <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 dark:text-neutral-100 mb-3">
-          이젠, 여러분의 학습 경험을 들려주세요
-        </h2>
-        <p className="text-neutral-500 dark:text-neutral-400 mb-2 text-sm md:text-base max-w-lg mx-auto">
-          학습 경험을 남기신 분들 중 매달 3분께 커피쿠폰을 보내드려요.
-        </p>
-        <p className="text-neutral-400 dark:text-neutral-500 text-sm mb-8">
-          써주신 후기는 확인 후 등록될 예정입니다. 소중한 의견 주셔서 감사합니다.
-        </p>
-        <a
-          href={site.contact.notion}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium px-8 py-4 rounded-full hover:opacity-90 transition shadow-lg text-sm md:text-base"
-        >
-          📝 후기 작성하기
-        </a>
+      <div className="max-w-container mx-auto section-x">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+              여러분의 학습 경험을 들려주세요
+            </h2>
+            <p className="text-neutral-500 dark:text-neutral-400 text-sm md:text-base max-w-md">
+              학습 경험을 남기신 분들 중 매달 3분께 커피쿠폰을 보내드려요.
+            </p>
+          </div>
+          <a
+            href={site.contact.notion}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-semibold px-8 py-3.5 rounded-lg hover:opacity-90 transition shadow-sm text-sm md:text-base shrink-0"
+          >
+            후기 작성하기
+          </a>
+        </div>
       </div>
     </section>
   )
@@ -287,38 +267,28 @@ function FAQ() {
 
   return (
     <section className="max-w-container mx-auto section-x py-16 md:py-24">
-      <p className="text-brand dark:text-brand-light text-sm font-medium tracking-widest uppercase mb-2">
+      <h2 className="text-2xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-100 mb-10">
         자주 묻는 질문
-      </p>
-      <h2 className="text-2xl md:text-3xl font-semibold text-neutral-800 dark:text-neutral-100 mb-3">
-        홈글리시에 대해 궁금한 게 있으신가요?
       </h2>
-      <p className="text-neutral-500 dark:text-neutral-400 text-sm mb-10">
-        홈글리시는 이용자분들이 가장 많이 물어보시는 질문과 답변을 한곳에 모았습니다.
-      </p>
 
-      <div className="space-y-3 max-w-3xl">
+      <div className="max-w-3xl border-t border-neutral-200 dark:border-neutral-700">
         {faqs.map((faq, i) => (
           <div
             key={i}
-            className="border border-neutral-200 dark:border-neutral-700 rounded-2xl overflow-hidden transition-colors"
+            className="border-b border-neutral-200 dark:border-neutral-700"
           >
             <button
               type="button"
               onClick={() => setOpen(open === i ? null : i)}
-              className="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-neutral-800 dark:text-neutral-100 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition text-sm md:text-base"
+              className="w-full flex items-center justify-between py-5 text-left text-neutral-800 dark:text-neutral-100 hover:text-brand dark:hover:text-brand-light transition text-sm md:text-base font-medium"
             >
-              <span className="flex items-center gap-3">
-                <span className="text-brand dark:text-brand-light font-black text-xs">Q</span>
-                {faq.q}
-              </span>
-              <span className={`text-neutral-400 transition-transform duration-200 ${open === i ? 'rotate-180' : ''}`}>
+              {faq.q}
+              <span className={`text-neutral-400 transition-transform duration-200 ml-4 shrink-0 ${open === i ? 'rotate-180' : ''}`}>
                 ▾
               </span>
             </button>
             {open === i && (
-              <div className="px-6 pb-5 pt-1 bg-bg dark:bg-bg-dark text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed border-t border-neutral-100 dark:border-neutral-700">
-                <span className="text-brand dark:text-brand-light font-black text-xs mr-3">A</span>
+              <div className="pb-5 text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">
                 {faq.a}
               </div>
             )}
@@ -327,14 +297,14 @@ function FAQ() {
       </div>
 
       <p className="mt-8 text-sm text-neutral-400 dark:text-neutral-500">
-        더 자세한 문의나 FAQ에서 다루지 않은 내용이 있다면{' '}
+        더 궁금한 점은{' '}
         <a
           href={`mailto:${site.contact.email}`}
-          className="text-brand dark:text-brand-light font-semibold hover:underline"
+          className="text-brand dark:text-brand-light underline underline-offset-2 hover:opacity-70 transition"
         >
           {site.contact.email}
         </a>
-        {' '}로 편하게 연락 주세요.
+        로 연락 주세요.
       </p>
     </section>
   )

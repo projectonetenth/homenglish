@@ -58,7 +58,7 @@ export default function ContentDetail() {
   if (!item) {
     return (
       <div className="max-w-container mx-auto section-x py-20 text-center">
-        <p className="text-5xl mb-4">😕</p>
+
         <p className="text-xl font-medium text-neutral-700 dark:text-neutral-200 mb-3">
           콘텐츠를 찾을 수 없습니다
         </p>
@@ -66,7 +66,7 @@ export default function ContentDetail() {
           to="/contents/all"
           className="text-brand dark:text-brand-light font-semibold hover:underline"
         >
-          ← 콘텐츠 목록으로 돌아가기
+          콘텐츠 목록으로 돌아가기
         </Link>
       </div>
     )
@@ -170,7 +170,7 @@ export default function ContentDetail() {
                   rel="noopener noreferrer"
                   className="mt-5 flex items-center justify-center gap-2 w-full bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium py-3 rounded-xl hover:opacity-90 transition text-sm"
                 >
-                  구매 / 바로가기 →
+                  구매 / 바로가기
                 </a>
               )}
             </div>
@@ -179,7 +179,7 @@ export default function ContentDetail() {
               to={`/contents/${item.category}`}
               className="flex items-center gap-1 text-sm text-brand dark:text-brand-light hover:underline"
             >
-              ← {cat?.label} 목록으로
+              {cat?.label} 목록으로
             </Link>
           </div>
 
@@ -213,7 +213,7 @@ export default function ContentDetail() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-brand dark:text-brand-light font-semibold hover:underline text-sm"
                 >
-                  📋 노션에서 자세히 보기 →
+                  노션에서 자세히 보기
                 </a>
               </div>
             ) : null}

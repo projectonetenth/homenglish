@@ -144,9 +144,9 @@ export default function About() {
         <div className="text-center">
           <Link
             to="/contents/all"
-            className="inline-flex items-center gap-2 bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium px-8 py-4 rounded-full hover:opacity-90 transition shadow-lg text-base"
+            className="inline-flex items-center bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium px-8 py-4 rounded-lg hover:opacity-90 transition shadow-sm text-base"
           >
-            콘텐츠 둘러보기 →
+            콘텐츠 둘러보기
           </Link>
         </div>
       </div>

@@ -71,7 +71,7 @@ export default function Login() {
     <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-16 bg-bg dark:bg-bg-dark">
       <div className="w-full max-w-md">
         {/* 카드 */}
-        <div className="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-neutral-100 dark:border-neutral-700 p-8">
+        <div className="bg-white dark:bg-surface-dark rounded-2xl shadow-warm border border-neutral-100 dark:border-neutral-700 p-8">
           {/* 헤더 */}
           <div className="mb-8 text-center">
             <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-1">
@@ -123,7 +123,7 @@ export default function Login() {
                 required
                 autoComplete="email"
                 placeholder="email@example.com"
-                className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 dark:focus:ring-brand-light/30 focus:border-brand dark:focus:border-brand-light transition"
+                className="w-full px-4 py-2.5 rounded-lg border border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 dark:focus:ring-brand-light/30 focus:border-brand dark:focus:border-brand-light transition"
               />
             </div>
 
@@ -138,7 +138,7 @@ export default function Login() {
                 required
                 autoComplete={tab === 'login' ? 'current-password' : 'new-password'}
                 placeholder={tab === 'signup' ? '6자 이상 입력해주세요' : '비밀번호를 입력해주세요'}
-                className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 dark:focus:ring-brand-light/30 focus:border-brand dark:focus:border-brand-light transition"
+                className="w-full px-4 py-2.5 rounded-lg border border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 dark:focus:ring-brand-light/30 focus:border-brand dark:focus:border-brand-light transition"
               />
             </div>
 
@@ -154,7 +154,7 @@ export default function Login() {
                   required
                   autoComplete="new-password"
                   placeholder="비밀번호를 다시 입력해주세요"
-                  className="w-full px-4 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 dark:focus:ring-brand-light/30 focus:border-brand dark:focus:border-brand-light transition"
+                  className="w-full px-4 py-2.5 rounded-lg border border-neutral-200 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-800 dark:text-neutral-100 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand/30 dark:focus:ring-brand-light/30 focus:border-brand dark:focus:border-brand-light transition"
                 />
               </div>
             )}
@@ -176,7 +176,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="mt-2 w-full py-3 rounded-xl bg-brand hover:bg-brand-dark text-white font-semibold text-sm transition disabled:opacity-60 disabled:cursor-not-allowed"
+              className="mt-2 w-full py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-semibold text-sm transition shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading
                 ? (tab === 'login' ? '로그인 중...' : '가입 중...')

@@ -16,22 +16,21 @@ export default function Footer() {
                 className="h-9 w-auto object-contain brightness-0 invert"
               />
             </Link>
-            <p className="text-sm text-white/60 leading-relaxed max-w-xs">
+            <p className="text-sm text-white/50 leading-relaxed max-w-xs">
               {site.description}
             </p>
           </div>
 
           {/* 주제별 */}
           <div>
-            <p className="text-xs font-medium text-white/40 uppercase tracking-widest mb-4">주제별</p>
-            <ul className="space-y-2">
+            <p className="text-xs font-medium text-white/30 uppercase tracking-widest mb-4">주제별</p>
+            <ul className="space-y-2.5">
               {Object.entries(categories).map(([key, cat]) => (
                 <li key={key}>
                   <Link
                     to={`/contents/${key}`}
-                    className="text-sm text-white/70 hover:text-white transition flex items-center gap-1.5"
+                    className="text-sm text-white/60 hover:text-white transition"
                   >
-                    <span className="text-base">{cat.emoji}</span>
                     {cat.label}
                   </Link>
                 </li>
@@ -41,15 +40,14 @@ export default function Footer() {
 
           {/* 유형별 */}
           <div>
-            <p className="text-xs font-medium text-white/40 uppercase tracking-widest mb-4">유형별</p>
-            <ul className="space-y-2">
+            <p className="text-xs font-medium text-white/30 uppercase tracking-widest mb-4">유형별</p>
+            <ul className="space-y-2.5">
               {Object.entries(types).map(([key, t]) => (
                 <li key={key}>
                   <Link
                     to={`/types/${key}`}
-                    className="text-sm text-white/70 hover:text-white transition flex items-center gap-1.5"
+                    className="text-sm text-white/60 hover:text-white transition"
                   >
-                    <span className="text-base">{t.emoji}</span>
                     {t.label}
                   </Link>
                 </li>
@@ -57,17 +55,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* 소개 */}
+          {/* 안내 */}
           <div>
-            <p className="text-xs font-medium text-white/40 uppercase tracking-widest mb-4">안내</p>
-            <ul className="space-y-2">
+            <p className="text-xs font-medium text-white/30 uppercase tracking-widest mb-4">안내</p>
+            <ul className="space-y-2.5">
               <li>
-                <Link to="/about" className="text-sm text-white/70 hover:text-white transition">
+                <Link to="/about" className="text-sm text-white/60 hover:text-white transition">
                   사이트 소개
                 </Link>
               </li>
               <li>
-                <Link to="/guide" className="text-sm text-white/70 hover:text-white transition">
+                <Link to="/guide" className="text-sm text-white/60 hover:text-white transition">
                   이용안내
                 </Link>
               </li>
@@ -77,9 +75,9 @@ export default function Footer() {
                     href={site.contact.youtube}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-white/70 hover:text-white transition flex items-center gap-1.5"
+                    className="text-sm text-white/60 hover:text-white transition"
                   >
-                    ▶ 유튜브 채널
+                    유튜브 채널
                   </a>
                 </li>
               )}
@@ -89,9 +87,9 @@ export default function Footer() {
                     href={site.contact.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-white/70 hover:text-white transition flex items-center gap-1.5"
+                    className="text-sm text-white/60 hover:text-white transition"
                   >
-                    📷 인스타그램
+                    인스타그램
                   </a>
                 </li>
               )}
@@ -111,8 +109,8 @@ export default function Footer() {
                   className={[
                     'text-xs transition',
                     l.strong
-                      ? 'font-medium text-white/80 hover:text-white'
-                      : 'text-white/40 hover:text-white/70',
+                      ? 'font-medium text-white/70 hover:text-white'
+                      : 'text-white/30 hover:text-white/60',
                   ].join(' ')}
                 >
                   {l.label}
@@ -120,7 +118,7 @@ export default function Footer() {
               </li>
             ))}
           </ul>
-          <p className="text-xs text-white/30">{site.copyright}</p>
+          <p className="text-xs text-white/25">{site.copyright}</p>
         </div>
       </div>
     </footer>
