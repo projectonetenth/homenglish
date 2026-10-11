@@ -16,7 +16,7 @@ function Hero() {
         </h1>
         <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
           <p className="text-neutral-500 dark:text-neutral-400 text-base md:text-lg max-w-xs leading-relaxed">
-            영어 가정학습 선배맘과 후배맘의
+            영어 가정학습 선배맘과 후배맘의<br />
             상부상조 커뮤니티 플랫폼
           </p>
           <div className="flex flex-wrap gap-3">
@@ -69,11 +69,11 @@ function Intro() {
       <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-start">
         <div>
           <h2 className="text-2xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-100 leading-snug mb-6">
-            부모와 아이가 함께하는{' '}
+            부모와 아이가 함께하는<br />
             <span className="text-brand dark:text-brand-light">영어 가정학습의 모든 것</span>
           </h2>
           <p className="text-neutral-500 dark:text-neutral-400 text-base leading-relaxed mb-8">
-            사교육비 걱정 없이, 집에서도 충분히 영어를 잘 할 수 있어요.
+            사교육비 걱정 없이, 집에서도 충분히 영어를 잘 할 수 있어요.<br />
             홈글리시에서 우리 아이에게 딱 맞는 콘텐츠를 찾아보세요.
           </p>
           <Link
