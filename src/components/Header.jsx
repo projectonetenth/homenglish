@@ -74,30 +74,6 @@ export default function Header() {
             )}
           </button>
 
-          {/* 로그인/유저 — 데스크탑 */}
-          <div className="hidden lg:flex items-center gap-2">
-            {user ? (
-              <>
-                <span className="text-sm text-neutral-400 dark:text-neutral-500 max-w-[100px] truncate">
-                  {userLabel}
-                </span>
-                <button
-                  type="button"
-                  onClick={handleSignOut}
-                  className="px-3 py-1.5 rounded-md border border-neutral-200 dark:border-neutral-700 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 hover:border-neutral-300 transition"
-                >
-                  로그아웃
-                </button>
-              </>
-            ) : (
-              <Link
-                to="/login"
-                className="px-4 py-1.5 rounded-md bg-brand hover:bg-brand-dark text-white text-sm font-medium transition shadow-sm"
-              >
-                로그인
-              </Link>
-            )}
-          </div>
 
           {/* 햄버거 */}
           <button
@@ -153,26 +129,6 @@ export default function Header() {
             </ul>
 
             <div className="border-t border-neutral-100 dark:border-neutral-700 pt-4 flex flex-col gap-2">
-              {user ? (
-                <>
-                  <p className="px-3 text-xs text-neutral-400">{userLabel}님</p>
-                  <button
-                    type="button"
-                    onClick={() => { handleSignOut(); setMobileOpen(false) }}
-                    className="w-full px-3 py-2.5 text-sm text-neutral-600 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 rounded-md transition text-left"
-                  >
-                    로그아웃
-                  </button>
-                </>
-              ) : (
-                <Link
-                  to="/login"
-                  onClick={() => setMobileOpen(false)}
-                  className="w-full px-3 py-2.5 bg-brand hover:bg-brand-dark text-white text-sm font-medium rounded-md transition text-center"
-                >
-                  로그인
-                </Link>
-              )}
               <button
                 type="button"
                 onClick={toggle}
