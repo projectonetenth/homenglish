@@ -176,7 +176,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="mt-2 w-full py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-semibold text-sm transition shadow-sm disabled:opacity-60 disabled:cursor-not-allowed"
+              className="mt-2 w-full py-3 rounded-full bg-brand hover:bg-brand-dark text-white font-semibold text-sm transition disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {loading
                 ? (tab === 'login' ? '로그인 중...' : '가입 중...')

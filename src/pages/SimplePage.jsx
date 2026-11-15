@@ -62,7 +62,7 @@ export default function SimplePage({ title }) {
       <div className="max-w-container mx-auto section-x py-24 text-center">
         <h1 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-4">{title}</h1>
         <p className="text-neutral-500 dark:text-neutral-400 mb-8">이 페이지는 준비 중입니다.</p>
-        <Link to="/" className="inline-flex items-center bg-brand text-white font-medium px-6 py-3 rounded-lg hover:opacity-90 transition">
+        <Link to="/" className="inline-flex items-center bg-brand hover:bg-brand-dark text-white font-semibold px-6 py-3 rounded-full transition">
           홈으로
         </Link>
       </div>
@@ -98,7 +98,7 @@ export default function SimplePage({ title }) {
             href={site.contact.form}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-brand hover:bg-brand-dark text-white text-sm font-medium px-5 py-2.5 rounded-lg transition shadow-sm"
+            className="inline-flex items-center bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-6 py-3 rounded-full transition"
           >
             문의하기
           </a>

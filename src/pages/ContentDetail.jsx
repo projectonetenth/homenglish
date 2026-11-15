@@ -168,7 +168,7 @@ export default function ContentDetail() {
                   href={item.purchaseUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 flex items-center justify-center gap-2 w-full bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium py-3 rounded-xl hover:opacity-90 transition text-sm"
+                  className="mt-5 flex items-center justify-center gap-2 w-full bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-full transition text-sm"
                 >
                   구매 / 바로가기
                 </a>

@@ -22,8 +22,8 @@ export default function About() {
             <span>›</span>
             <span>홈글리시 소개</span>
           </nav>
-          <p className="text-palette-yellow text-sm font-medium tracking-widest uppercase mb-3">About</p>
-          <h1 className="text-3xl md:text-5xl font-semibold mb-4 leading-tight">
+          <p className="text-brand-light text-sm font-semibold tracking-widest uppercase mb-3">About</p>
+          <h1 className="text-3xl md:text-5xl font-bold tracking-[-0.02em] mb-4 leading-tight">
             홈글리시 소개
           </h1>
           <p className="text-white/80 max-w-2xl text-base md:text-lg leading-relaxed">
@@ -54,10 +54,10 @@ export default function About() {
 
         {/* 10분의 1 프로젝트 */}
         <div className="bg-brand dark:bg-brand-dark rounded-3xl p-8 md:p-12 mb-20 transition-colors">
-          <p className="text-palette-yellow text-xs font-medium tracking-widest uppercase mb-3">
+          <p className="text-brand-light text-xs font-semibold tracking-widest uppercase mb-3">
             임팩트닷 커리어 프로젝트 선정
           </p>
-          <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold tracking-[-0.02em] text-white mb-4">
             10분의 1 프로젝트
           </h2>
           <p className="text-white/80 text-base md:text-lg leading-relaxed mb-6 max-w-2xl">
@@ -71,7 +71,7 @@ export default function About() {
             <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
               {timeline.map((t) => (
                 <div key={t.text} className="bg-white/10 rounded-xl p-4">
-                  <p className="text-palette-yellow font-black text-sm mb-1">{t.year}</p>
+                  <p className="text-brand-light font-bold text-sm mb-1">{t.year}</p>
                   <p className="text-white/80 text-xs leading-snug">{t.text}</p>
                 </div>
               ))}
@@ -86,15 +86,17 @@ export default function About() {
           </h2>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { emoji: '👩‍👧', text: '아이에게 영어를 집에서 가르쳐보고 싶은 부모' },
-              { emoji: '💰', text: '사교육비 부담을 줄이고 싶은 가정' },
-              { emoji: '🤔', text: '정보는 많지만 무엇부터 해야 할지 몰라 헤매는 부모' },
-              { emoji: '🎯', text: '아이 수준에 맞는 자료와 학습 방법을 찾고 싶은 가정' },
-            ].map((item) => (
-              <div key={item.text} className="card p-5 flex items-center gap-4">
-                <span className="text-3xl shrink-0">{item.emoji}</span>
+              '아이에게 영어를 집에서 가르쳐보고 싶은 부모',
+              '사교육비 부담을 줄이고 싶은 가정',
+              '정보는 많지만 무엇부터 해야 할지 몰라 헤매는 부모',
+              '아이 수준에 맞는 자료와 학습 방법을 찾고 싶은 가정',
+            ].map((text) => (
+              <div key={text} className="rounded-2xl bg-surface dark:bg-surface-dark border border-neutral-200/70 dark:border-neutral-800 p-5 flex items-center gap-4">
+                <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand/10 dark:bg-brand/20 text-brand dark:text-brand-light shrink-0" aria-hidden>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
                 <p className="text-neutral-700 dark:text-neutral-200 font-medium text-sm md:text-base leading-snug">
-                  {item.text}
+                  {text}
                 </p>
               </div>
             ))}
@@ -144,7 +146,7 @@ export default function About() {
         <div className="text-center">
           <Link
             to="/contents/all"
-            className="inline-flex items-center bg-brand dark:bg-brand-light text-white dark:text-bg-dark font-medium px-8 py-4 rounded-lg hover:opacity-90 transition shadow-sm text-base"
+            className="inline-flex items-center bg-brand hover:bg-brand-dark text-white font-semibold px-8 py-3.5 rounded-full transition text-base"
           >
             콘텐츠 둘러보기
           </Link>

@@ -119,14 +119,14 @@ export default function Board({ type = 'free' }) {
           {user ? (
             <button
               onClick={() => navigate(`/board/write?type=${type}`)}
-              className="px-5 py-2.5 rounded-xl bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition"
+              className="px-5 py-2.5 rounded-full bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition"
             >
               글쓰기
             </button>
           ) : (
             <Link
               to="/login"
-              className="px-5 py-2.5 rounded-xl border border-brand text-brand dark:border-brand-light dark:text-brand-light text-sm font-semibold hover:bg-brand/5 dark:hover:bg-brand-light/10 transition"
+              className="px-5 py-2.5 rounded-full border border-brand text-brand dark:border-brand-light dark:text-brand-light text-sm font-semibold hover:bg-brand/5 dark:hover:bg-brand-light/10 transition"
             >
               로그인 후 글쓰기
             </Link>
@@ -141,7 +141,7 @@ export default function Board({ type = 'free' }) {
         )}
 
         {/* 테이블 */}
-        <div className="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-neutral-100 dark:border-neutral-700 overflow-hidden">
+        <div className="bg-white dark:bg-surface-dark rounded-2xl border border-neutral-200/70 dark:border-neutral-700 overflow-hidden">
           {/* 테이블 헤더 */}
           <div className="hidden sm:grid grid-cols-[1fr_auto_auto_auto] gap-4 px-6 py-3 border-b border-neutral-100 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800/50 text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
             <span>제목</span>
@@ -164,7 +164,7 @@ export default function Board({ type = 'free' }) {
               {user && (
                 <button
                   onClick={() => navigate(`/board/write?type=${type}`)}
-                  className="mt-4 px-5 py-2 rounded-xl bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition"
+                  className="mt-4 px-5 py-2.5 rounded-full bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition"
                 >
                   첫 글을 작성해보세요
                 </button>

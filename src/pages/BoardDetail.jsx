@@ -100,7 +100,7 @@ export default function BoardDetail() {
         <p className="text-red-500 text-sm">{error}</p>
         <button
           onClick={() => navigate('/board/free')}
-          className="px-5 py-2.5 rounded-xl bg-brand text-white text-sm font-semibold hover:bg-brand-dark transition"
+          className="px-5 py-2.5 rounded-full bg-brand text-white text-sm font-semibold hover:bg-brand-dark transition"
         >
           목록으로
         </button>
@@ -123,7 +123,7 @@ export default function BoardDetail() {
         </button>
 
         {/* 게시글 카드 */}
-        <div className="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-neutral-100 dark:border-neutral-700">
+        <div className="bg-white dark:bg-surface-dark rounded-2xl border border-neutral-200/70 dark:border-neutral-700">
           {/* 헤더 */}
           <div className="px-8 py-6 border-b border-neutral-100 dark:border-neutral-700">
             <h1 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-4 leading-relaxed">
@@ -168,14 +168,14 @@ export default function BoardDetail() {
             <div className="px-8 py-5 border-t border-neutral-100 dark:border-neutral-700 flex items-center justify-end gap-3">
               <button
                 onClick={() => navigate(`/board/write?edit=${post.id}&type=${post.board_type || 'free'}`)}
-                className="px-4 py-2 rounded-xl border border-brand dark:border-brand-light text-brand dark:text-brand-light text-sm font-semibold hover:bg-brand/5 dark:hover:bg-brand-light/10 transition"
+                className="px-5 py-2 rounded-full border border-brand dark:border-brand-light text-brand dark:text-brand-light text-sm font-semibold hover:bg-brand/5 dark:hover:bg-brand-light/10 transition"
               >
                 수정
               </button>
               <button
                 onClick={handleDelete}
                 disabled={deleting}
-                className="px-4 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white text-sm font-semibold transition disabled:opacity-60 disabled:cursor-not-allowed"
+                className="px-5 py-2 rounded-full bg-red-500 hover:bg-red-600 text-white text-sm font-semibold transition disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {deleting ? '삭제 중...' : '삭제'}
               </button>

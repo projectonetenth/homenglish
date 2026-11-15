@@ -1,27 +1,13 @@
 import { Link } from 'react-router-dom'
 import { categories, grades } from '../data/site'
 
-const catBg = {
-  mint:  'bg-palette-mint/70 dark:bg-palette-mint/10',
-  yellow:'bg-palette-yellow/70 dark:bg-palette-yellow/10',
-  peach: 'bg-palette-peach/70 dark:bg-palette-peach/10',
-  blue:  'bg-palette-blue/70 dark:bg-palette-blue/10',
-}
-
-const catText = {
-  mint:  'text-emerald-700 dark:text-emerald-400',
-  yellow:'text-amber-700 dark:text-amber-400',
-  peach: 'text-orange-700 dark:text-orange-400',
-  blue:  'text-blue-700 dark:text-blue-400',
-}
-
 export default function ContentCard({ item }) {
   const cat = categories[item.category]
   const grade = grades[item.grade] || grades.all
   const gradeLabel = item.gradeShort || grade.label
 
-  const bg = catBg[cat?.color] ?? 'bg-neutral-100 dark:bg-neutral-800'
-  const tc = catText[cat?.color] ?? 'text-neutral-500 dark:text-neutral-400'
+  const bg = 'bg-surface-2 dark:bg-surface-2dark'
+  const tc = 'text-brand/30 dark:text-brand-light/30'
 
   return (
     <Link

@@ -155,7 +155,7 @@ export default function BoardWrite() {
         </div>
 
         {/* 폼 카드 */}
-        <div className="bg-white dark:bg-surface-dark rounded-2xl shadow-sm border border-neutral-100 dark:border-neutral-700 p-8">
+        <div className="bg-white dark:bg-surface-dark rounded-2xl border border-neutral-200/70 dark:border-neutral-700 p-8">
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* 제목 */}
             <div>
@@ -198,14 +198,14 @@ export default function BoardWrite() {
               <button
                 type="button"
                 onClick={handleCancel}
-                className="px-5 py-2.5 rounded-xl border border-neutral-200 dark:border-neutral-600 text-neutral-600 dark:text-neutral-400 text-sm font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-700 transition"
+                className="px-5 py-2.5 rounded-full border border-neutral-300 dark:border-neutral-600 text-neutral-600 dark:text-neutral-400 text-sm font-semibold hover:bg-neutral-50 dark:hover:bg-neutral-700 transition"
               >
                 취소
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                className="px-5 py-2.5 rounded-xl bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition disabled:opacity-60 disabled:cursor-not-allowed"
+                className="px-5 py-2.5 rounded-full bg-brand hover:bg-brand-dark text-white text-sm font-semibold transition disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 {loading ? '저장 중...' : (isEditMode ? '수정 완료' : '등록')}
               </button>

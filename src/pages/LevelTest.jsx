@@ -1,5 +1,5 @@
 // ✅ Tally 링크 받으면 아래 URL만 교체하면 됩니다
-const TALLY_URL = null // 예: 'https://tally.so/embed/wgxxxxxx?alignLeft=1&hideTitle=1&transparentBackground=1'
+const TALLY_URL = 'https://tally.so/embed/mRAYK4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1'
 
 export default function LevelTest() {
   return (

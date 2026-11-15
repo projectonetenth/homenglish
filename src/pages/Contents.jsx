@@ -40,64 +40,43 @@ export default function Contents({ mode }) {
   const totalPages = Math.ceil(filtered.length / PER_PAGE)
   const paged = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE)
 
-  const colorBg = {
-    peach: 'bg-palette-peach',
-    yellow: 'bg-palette-yellow',
-    mint: 'bg-palette-mint',
-    blue: 'bg-palette-blue',
-  }
-
-  const bannerColor =
-    mode === 'category'
-      ? colorBg[(categories[category] || categories.all).color] || 'bg-palette-blue'
-      : 'bg-palette-blue'
-
   return (
     <div>
       {/* 배너 */}
-      <div className={`${bannerColor} dark:opacity-90`}>
-        <div className="max-w-container mx-auto section-x py-10 md:py-14">
-          <nav className="text-xs text-neutral-700 mb-4 flex items-center gap-2">
-            <Link to="/" className="hover:underline font-medium">홈</Link>
+      <div className="bg-surface-2 dark:bg-surface-2dark border-b border-neutral-200/70 dark:border-neutral-800">
+        <div className="max-w-container mx-auto section-x py-12 md:py-16">
+          <nav className="text-xs text-neutral-500 dark:text-neutral-400 mb-5 flex items-center gap-2">
+            <Link to="/" className="hover:text-brand dark:hover:text-brand-light font-medium">홈</Link>
             <span>›</span>
             {mode === 'category' ? (
               <>
-                <Link to="/contents/all" className="hover:underline font-medium">주제별 콘텐츠</Link>
+                <Link to="/contents/all" className="hover:text-brand dark:hover:text-brand-light font-medium">주제별 콘텐츠</Link>
                 {category && category !== 'all' && (
                   <>
                     <span>›</span>
-                    <span className="font-medium">{categories[category]?.label}</span>
+                    <span className="font-medium text-neutral-700 dark:text-neutral-200">{categories[category]?.label}</span>
                   </>
                 )}
               </>
             ) : (
               <>
-                <Link to="/types/free" className="hover:underline font-medium">유형별 콘텐츠</Link>
+                <Link to="/types/free" className="hover:text-brand dark:hover:text-brand-light font-medium">유형별 콘텐츠</Link>
                 <span>›</span>
-                <span className="font-medium">{types[type]?.label}</span>
+                <span className="font-medium text-neutral-700 dark:text-neutral-200">{types[type]?.label}</span>
               </>
             )}
           </nav>
 
-          <div className="flex items-center gap-4">
-            <span className="text-5xl">
-              {mode === 'category'
-                ? (categories[category] || categories.all).emoji
-                : types[type]?.emoji}
-            </span>
-            <div>
-              <h1 className="text-2xl md:text-4xl font-semibold text-neutral-800 leading-tight">
-                {mode === 'category'
-                  ? (categories[category] || categories.all).label
-                  : `${types[type]?.label} 콘텐츠`}
-              </h1>
-              <p className="text-sm text-neutral-600 mt-1">
-                {mode === 'category'
-                  ? (categories[category] || categories.all).desc
-                  : `${types[type]?.label} 형태의 모든 영어 교육 콘텐츠`}
-              </p>
-            </div>
-          </div>
+          <h1 className="text-2xl md:text-4xl font-bold tracking-[-0.02em] text-neutral-900 dark:text-neutral-100 leading-tight">
+            {mode === 'category'
+              ? (categories[category] || categories.all).label
+              : `${types[type]?.label} 콘텐츠`}
+          </h1>
+          <p className="text-sm md:text-base text-neutral-500 dark:text-neutral-400 mt-2">
+            {mode === 'category'
+              ? (categories[category] || categories.all).desc
+              : `${types[type]?.label} 형태의 모든 영어 교육 콘텐츠`}
+          </p>
         </div>
       </div>
 
@@ -115,13 +94,12 @@ export default function Contents({ mode }) {
                     key={key}
                     to={`/contents/${key}`}
                     className={[
-                      'flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition border',
+                      'px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition border',
                       isActive
                         ? 'bg-brand text-white border-brand dark:bg-brand-light dark:text-bg-dark dark:border-brand-light'
                         : 'bg-white dark:bg-surface-dark text-neutral-600 dark:text-neutral-300 border-neutral-200 dark:border-neutral-600 hover:border-brand dark:hover:border-brand-light hover:text-brand dark:hover:text-brand-light',
                     ].join(' ')}
                   >
-                    <span>{cat.emoji}</span>
                     {cat.label}
                   </Link>
                 )
@@ -143,13 +121,12 @@ export default function Contents({ mode }) {
                     key={key}
                     to={`/types/${key}`}
                     className={[
-                      'flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition border',
+                      'px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition border',
                       isActive
                         ? 'bg-brand text-white border-brand dark:bg-brand-light dark:text-bg-dark dark:border-brand-light'
                         : 'bg-white dark:bg-surface-dark text-neutral-600 dark:text-neutral-300 border-neutral-200 dark:border-neutral-600 hover:border-brand dark:hover:border-brand-light hover:text-brand dark:hover:text-brand-light',
                     ].join(' ')}
                   >
-                    <span>{t.emoji}</span>
                     {t.label}
                   </Link>
                 )
@@ -184,13 +161,13 @@ export default function Contents({ mode }) {
                   type="button"
                   onClick={() => { setTypeFilter(key); setPage(1) }}
                   className={[
-                    'flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold border transition',
+                    'px-3 py-1.5 rounded-full text-xs font-semibold border transition',
                     typeFilter === key
                       ? 'bg-brand text-white border-brand dark:bg-brand-light dark:text-bg-dark'
                       : 'bg-white dark:bg-surface-dark text-neutral-500 dark:text-neutral-400 border-neutral-200 dark:border-neutral-600 hover:border-brand',
                   ].join(' ')}
                 >
-                  {t.emoji} {t.label}
+                  {t.label}
                 </button>
               )
             })}
@@ -234,7 +211,9 @@ export default function Contents({ mode }) {
 
         {!loading && !error && paged.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-5xl mb-4">🔍</p>
+            <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-surface-2 dark:bg-surface-2dark flex items-center justify-center text-neutral-400 dark:text-neutral-500">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
             <p className="text-neutral-500 dark:text-neutral-400 text-lg font-medium">
               해당 조건의 콘텐츠가 없습니다.
             </p>
