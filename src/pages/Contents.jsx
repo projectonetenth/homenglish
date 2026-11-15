@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { categories, types, grades } from '../data/site'
 import { useSheetData } from '../hooks/useSheetData'
+import { usePageTitle } from '../hooks/usePageTitle'
 import ContentCard from '../components/ContentCard'
 import Pagination from '../components/Pagination'
 
@@ -23,6 +24,12 @@ export default function Contents({ mode }) {
     setTypeFilter('all')
     setGradeFilter('all')
   }, [category, type, mode])
+
+  usePageTitle(
+    mode === 'category'
+      ? `${(categories[category] || categories.all).label} 콘텐츠`
+      : `${types[type]?.label || ''} 콘텐츠`
+  )
 
   const filtered = useMemo(() => {
     let list = contents

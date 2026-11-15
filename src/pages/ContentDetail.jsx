@@ -1,6 +1,8 @@
 import { useParams, Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import { useSheetData } from '../hooks/useSheetData'
+import { usePageTitle } from '../hooks/usePageTitle'
+import { trackEvent } from '../lib/analytics'
 import { categories, grades } from '../data/site'
 
 function extractNotionSrc(html) {
@@ -43,6 +45,8 @@ export default function ContentDetail() {
   const cat = categories[item?.category]
   const grade = grades[item?.grade] || grades.all
   const notionSrc = extractNotionSrc(item?.notionEmbed)
+
+  usePageTitle(item?.title)
 
   if (loading) {
     return (
@@ -168,6 +172,7 @@ export default function ContentDetail() {
                   href={item.purchaseUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackEvent('purchase_click', { content_name: item.title, content_id: item.id })}
                   className="mt-5 flex items-center justify-center gap-2 w-full bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-full transition text-sm"
                 >
                   구매 / 바로가기

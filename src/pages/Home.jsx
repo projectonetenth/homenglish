@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { categories, faqs, site } from '../data/site'
 import { useSheetData } from '../hooks/useSheetData'
+import { usePageTitle } from '../hooks/usePageTitle'
 import ContentCard from '../components/ContentCard'
 
 // ── 카테고리 아이콘 (채워진 라운드 스타일) ─────────────────
@@ -325,6 +326,7 @@ function FAQ() {
 }
 
 export default function Home() {
+  usePageTitle()
   return (
     <>
       <Hero />

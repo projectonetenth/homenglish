@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { site } from '../data/site'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const FORM = site.contact.form
 
@@ -55,6 +56,7 @@ const content = {
 }
 
 export default function SimplePage({ title }) {
+  usePageTitle(title)
   const page = content[title]
 
   if (!page) {

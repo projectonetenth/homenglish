@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { categories, grades } from '../data/site'
+import { trackEvent } from '../lib/analytics'
 
 export default function ContentCard({ item }) {
   const cat = categories[item.category]
@@ -12,6 +13,7 @@ export default function ContentCard({ item }) {
   return (
     <Link
       to={`/content/${item.id}`}
+      onClick={() => trackEvent('select_content', { content_name: item.title, content_id: item.id })}
       className="group flex flex-col bg-white dark:bg-surface-dark border border-neutral-100 dark:border-neutral-800 rounded-xl overflow-hidden transition-all duration-200 hover:border-neutral-300 dark:hover:border-neutral-600 hover:-translate-y-0.5"
     >
       {/* 썸네일 */}

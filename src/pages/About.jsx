@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { site, faqs } from '../data/site'
 import { useState } from 'react'
+import { usePageTitle } from '../hooks/usePageTitle'
 
 const timeline = [
   { year: '2024', text: '홈글리시 서비스 기획 시작' },
@@ -11,6 +12,7 @@ const timeline = [
 
 export default function About() {
   const [open, setOpen] = useState(null)
+  usePageTitle('홈글리시 소개')
 
   return (
     <div>

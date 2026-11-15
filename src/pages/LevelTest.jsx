@@ -1,7 +1,10 @@
+import { usePageTitle } from '../hooks/usePageTitle'
+
 // ✅ Tally 링크 받으면 아래 URL만 교체하면 됩니다
 const TALLY_URL = 'https://tally.so/embed/mRAYK4?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1'
 
 export default function LevelTest() {
+  usePageTitle('영어 레벨 진단 테스트')
   return (
     <div className="min-h-[calc(100vh-3.5rem)] bg-bg dark:bg-bg-dark">
       {/* 헤더 */}
