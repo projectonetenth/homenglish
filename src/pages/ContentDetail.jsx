@@ -136,7 +136,7 @@ export default function ContentDetail() {
               </h2>
               <dl className="space-y-3">
                 {item.gradeRaw && (
-                  <Row label="학년">
+                  <Row label="추천 학년">
                     <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${grade.color}`}>
                       {item.gradeRaw}
                     </span>

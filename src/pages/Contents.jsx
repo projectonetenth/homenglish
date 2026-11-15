@@ -180,10 +180,10 @@ export default function Contents({ mode }) {
           </div>
         )}
 
-        {/* 학령 필터 */}
+        {/* 추천 학년 필터 */}
         <div className="mb-8 flex items-center gap-2 flex-wrap">
           <span className="text-xs font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mr-1">
-            학령 필터
+            추천 학년
           </span>
           <button
             type="button"
