@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { categories, types } from '../data/site'
+import { categories, types, grades } from '../data/site'
 import { useSheetData } from '../hooks/useSheetData'
 import ContentCard from '../components/ContentCard'
 import Pagination from '../components/Pagination'
@@ -9,16 +9,19 @@ const PER_PAGE = 9
 
 const catOrder = ['all', 'reading', 'grammar', 'vocabulary', 'listening', 'phonics', 'app']
 const typeOrder = ['free', 'paid', 'video', 'worksheet', 'app', 'book']
+const gradeOrder = ['preschool', 'early', 'late', 'middle']
 
 export default function Contents({ mode }) {
   const { category, type } = useParams()
   const [typeFilter, setTypeFilter] = useState('all')
+  const [gradeFilter, setGradeFilter] = useState('all')
   const [page, setPage] = useState(1)
   const { contents, loading, error } = useSheetData()
 
   useEffect(() => {
     setPage(1)
     setTypeFilter('all')
+    setGradeFilter('all')
   }, [category, type, mode])
 
   const filtered = useMemo(() => {
@@ -33,9 +36,12 @@ export default function Contents({ mode }) {
     if (typeFilter !== 'all') {
       list = list.filter((c) => c.types.includes(typeFilter))
     }
+    if (gradeFilter !== 'all') {
+      list = list.filter((c) => c.grade === gradeFilter)
+    }
 
     return list
-  }, [contents, category, type, mode, typeFilter])
+  }, [contents, category, type, mode, typeFilter, gradeFilter])
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE)
   const paged = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE)
@@ -173,6 +179,40 @@ export default function Contents({ mode }) {
             })}
           </div>
         )}
+
+        {/* 학령 필터 */}
+        <div className="mb-8 flex items-center gap-2 flex-wrap">
+          <span className="text-xs font-semibold text-neutral-400 dark:text-neutral-500 uppercase tracking-wider mr-1">
+            학령 필터
+          </span>
+          <button
+            type="button"
+            onClick={() => { setGradeFilter('all'); setPage(1) }}
+            className={[
+              'px-3 py-1.5 rounded-full text-xs font-semibold border transition',
+              gradeFilter === 'all'
+                ? 'bg-brand text-white border-brand dark:bg-brand-light dark:text-bg-dark'
+                : 'bg-white dark:bg-surface-dark text-neutral-500 dark:text-neutral-400 border-neutral-200 dark:border-neutral-600 hover:border-brand',
+            ].join(' ')}
+          >
+            전체
+          </button>
+          {gradeOrder.map((key) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => { setGradeFilter(key); setPage(1) }}
+              className={[
+                'px-3 py-1.5 rounded-full text-xs font-semibold border transition',
+                gradeFilter === key
+                  ? 'bg-brand text-white border-brand dark:bg-brand-light dark:text-bg-dark'
+                  : 'bg-white dark:bg-surface-dark text-neutral-500 dark:text-neutral-400 border-neutral-200 dark:border-neutral-600 hover:border-brand',
+              ].join(' ')}
+            >
+              {grades[key].label}
+            </button>
+          ))}
+        </div>
 
         {/* 결과 수 */}
         {!loading && (
