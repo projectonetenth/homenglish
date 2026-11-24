@@ -312,7 +312,7 @@ function FAQ() {
       <p className="mt-8 text-sm text-neutral-400 dark:text-neutral-500">
         더 궁금한 점은{' '}
         <a
-          href={site.contact.form}
+          href={site.contact.inquiry}
           target="_blank"
           rel="noopener noreferrer"
           className="text-brand dark:text-brand-light underline underline-offset-2 hover:opacity-70 transition"

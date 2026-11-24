@@ -12,7 +12,9 @@ export const site = {
   contact: {
     email: 'homenglish@gmail.com',
     instagram: '#',
+    // form: 콘텐츠 경험 설문(후기용) / inquiry: 범용 문의 전용 폼
     form: 'https://docs.google.com/forms/d/e/1FAIpQLSeH6bqF6Rn7khNICRh1wLVMqazthE1ncaSvAFNm2gCANC0qOg/viewform?usp=send_form',
+    inquiry: 'https://docs.google.com/forms/d/e/1FAIpQLSeGVo5tjf8rWTxWc87xPSsL-g76qgYLjA7C0ada5MRBwwBOmA/viewform',
     youtube: 'https://www.youtube.com/@10%EB%B6%84%EC%9D%981%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8',
   },
   footerLinks: [

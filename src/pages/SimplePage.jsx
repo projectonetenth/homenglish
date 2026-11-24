@@ -97,7 +97,7 @@ export default function SimplePage({ title }) {
 
         <div className="mt-14 pt-8 border-t border-neutral-200 dark:border-neutral-700 flex items-center gap-6">
           <a
-            href={site.contact.form}
+            href={site.contact.inquiry}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-brand hover:bg-brand-dark text-white text-sm font-semibold px-6 py-3 rounded-full transition"

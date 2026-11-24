@@ -138,7 +138,7 @@ export default function About() {
           </div>
           <p className="mt-6 text-sm text-neutral-400 dark:text-neutral-500">
             더 궁금한 점은{' '}
-            <a href={site.contact.form} target="_blank" rel="noopener noreferrer" className="text-brand dark:text-brand-light font-semibold hover:underline">
+            <a href={site.contact.inquiry} target="_blank" rel="noopener noreferrer" className="text-brand dark:text-brand-light font-semibold hover:underline">
               문의하기
             </a>
             를 이용해 주세요.
